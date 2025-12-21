@@ -1,0 +1,42 @@
+{
+    "cmake.configureArgs": [
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DIREE_ENABLE_ASSERTIONS=ON",
+        "-DIREE_ENABLE_SPLIT_DWARF=ON",
+        "-DIREE_ENABLE_THIN_ARCHIVES=ON",
+        "-DCMAKE_C_COMPILER=clang",
+        "-DCMAKE_CXX_COMPILER=clang++",
+        "-DIREE_ENABLE_LLD=ON",
+        "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
+        "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
+        "-DIREE_TARGET_BACKEND_DEFAULTS=OFF",
+        "-DIREE_TARGET_BACKEND_LLVM_CPU=ON",
+        "-DIREE_HAL_DRIVER_DEFAULTS=OFF",
+        "-DIREE_HAL_DRIVER_LOCAL_SYNC=ON",
+        "-DIREE_HAL_DRIVER_LOCAL_TASK=ON",
+        "-DIREE_BUILD_PYTHON_BINDINGS=ON",
+        "-DPython3_EXECUTABLE=/home/cds/anaconda3/bin/python3",
+        "-DCMAKE_INSTALL_PREFIX=/home/cds/workspace/iree/install_debug",
+    ],
+    "cmake.installPrefix": "/home/cds/workspace/iree/install_debug",
+    "cmake.debugConfig": {
+        // iree compile
+        "program": "/home/cds/workspace/iree/build_debug/bin/iree-compile",
+        "args": [
+            "--iree-hal-target-device=local",
+            "--iree-hal-local-target-device-backends=llvm-cpu",
+            "--iree-llvmcpu-target-cpu=host",
+            "-o",
+            "/home/cds/workspace/iree/cds_test/mobilenetv2-12-batch1.vmfb",
+        ],
+
+        // iree run module
+        // "program": "/home/cds/workspace/iree/build_debug/bin/iree-run-module",
+        // "args": [
+        //     "--module=/home/cds/workspace/iree/cds_test/mobilenetv2-12-batch1.vmfb",
+        //     "--device=local-task",
+        //     "--function=torch-jit-export",
+        //     "--input=\"1x3x224x224xf32=2\"",
+        // ]
+    }
+}
