@@ -1,0 +1,98 @@
+// -----// IR Dump After ConvertTorchToLinalg (convert-torch-to-linalg) //----- //
+func.func @SingleConv(%arg0: !torch.vtensor<[1,3,500,500],f32>) -> !torch.vtensor<[1,8,498,498],f32> attributes {torch.assume_strict_symbolic_shapes, torch.onnx_meta.ir_version = 13 : si64, torch.onnx_meta.opset_version = 25 : si64, torch.onnx_meta.producer_name = "single_conv_example", torch.onnx_meta.producer_version = ""} {
+  %0 = torch_c.to_builtin_tensor %arg0 : !torch.vtensor<[1,3,500,500],f32> -> tensor<1x3x500x500xf32>
+  %false = torch.constant.bool false
+  %int1 = torch.constant.int 1
+  %c1_i64 = arith.constant 1 : i64
+  %1 = torch.vtensor.literal(dense<"0xCE861C3F58A856BF2684FE3EF869923ED0F25F3EC28410BFFF9B1CBEF2D937C0525699BFB06C733F5A4A093E748C21BF0ACB0840B977EA3FE66A1B3F060FF1BFA81D75BF094FA2BF4351F2BFDB151BBFBA7D87BF784D94BEC84A43BFFEB64BBF75B8683FCB3D803F6FBA7BBE7F805CBECF28C33FF31600BF4470ACBFC0BC48BEF09476BFD1D5923FF07E29BFC884323EA53381BF87DBC2BF32E30640C597463F29FA7DBF5CEDCEBF523EE23F8BA5EEBE2FCEADBEF1D40DC07014E73F623D153FCEF05B3EDBCD68BF6174E5BFB06419BF8C8889BF357BE7BF861A983F670EC53EA5A9E3BEB33355BE77B9233D56B9A7BF3CB832BF2AECEFBC696A873EC27F02C0938D72BEEEB61DBF03FCE4BED8433EBFFCE5AB3F34F887BE151690BE3B7B80BE597E183E2BE13A3F8EA4513C7397B43FA73BA43EA4F4113F9F339BBF657F283F8C038EBE506512C06721763E9B4EA9BEAB294CBFEE60B3BF1E9E14BFBF97BDBF1C6740BDAA2532C08B74F2BE881E293FEFA24E3E0747963F546511BFC8B9283E615C8BBEEC3E283F4CC090BFF475F1BE4673893F4C36A03FCC55CB3DDB9A0FC0861754BF8B0A993F639752BD979D6ABFB2C114BFB687EA3FEA5DC8BF9DCC41BDAE449CBEADDE4C3EAE6440C076BEB13F5B9ED3BF9BEC603FED147F3FC58E153F5B2FC5BF8F08D73CD23D9D3DCAF9F1BEE260A83EC847BD3F745A123F0564B63FBAF500BF7671F53E4A2B1BC0D2F550BEF30C8C3F1418A03EE74F893E680D5ABF43A391BE1B22593F68255D3E8E3D413D8C9497BEF94089BF72557EBD9D7F713FDA9E063EADF80A405B720B3FE05E27BF75FACA3F6725ABBFC2A493BE2B5486BE585589BFEC42863FE406CD3EAECAE63E7BE8B9BDFD5CA6BF7226C3BF4B74E3BB7F6CE4BF399D713ED4D3893DC15AFB3EA8FBFB3ED14373BF1C2E32BF0D54BFBF2C4B4BBE0FDD95BE8C5345BF1408B73F5C65E8BD096183BF553488BFB641D43FBBC9183F155A98BF41ECE63E7C6E7DBD66A8D9BFE92A12BFD140A43DE557C53FD1C4AC3F8F41D1BE2876AEBF5FF3A1BDD55B733EE3E9C8BFA2520B3E0B8B34BFD2889EBF78A73E3D52D01ABFA5C9913FFE83A83E339D89BF96998F3EC2D4BEBE2C99EDBE31ED7B3EF021E9BDA1C8593E3011543F014A27BF94EB3A3FBB8DB53E2781CF3E917ECC3E7EF8B63D0F2F0FBEE10E543E9976F7BECA20F4BF5A2E87BF"> : tensor<8x3x3x3xf32>) : !torch.vtensor<[8,3,3,3],f32>
+  %2 = torch_c.to_builtin_tensor %1 : !torch.vtensor<[8,3,3,3],f32> -> tensor<8x3x3x3xf32>
+  %3 = torch.vtensor.literal(dense<[0.540064871, 1.66891348, -0.204370424, 0.173146293, -0.0351918153, -0.198536336, 0.0749602392, 0.360360771]> : tensor<8xf32>) : !torch.vtensor<[8],f32>
+  %4 = torch_c.to_builtin_tensor %3 : !torch.vtensor<[8],f32> -> tensor<8xf32>
+  %int0 = torch.constant.int 0
+  %5 = torch.prim.ListConstruct %int0, %int0 : (!torch.int, !torch.int) -> !torch.list<int>
+  %6 = torch.prim.ListConstruct %int1, %int1 : (!torch.int, !torch.int) -> !torch.list<int>
+  %c0_i64 = arith.constant 0 : i64
+  %c0_i64_0 = arith.constant 0 : i64
+  %c0_i64_1 = arith.constant 0 : i64
+  %c0_i64_2 = arith.constant 0 : i64
+  %7 = arith.index_cast %c1_i64 : i64 to index
+  %c0 = arith.constant 0 : index
+  %c1 = arith.constant 1 : index
+  %c1_3 = arith.constant 1 : index
+  %c3 = arith.constant 3 : index
+  %c2 = arith.constant 2 : index
+  %c500 = arith.constant 500 : index
+  %c3_4 = arith.constant 3 : index
+  %c500_5 = arith.constant 500 : index
+  %c0_6 = arith.constant 0 : index
+  %c8 = arith.constant 8 : index
+  %c1_7 = arith.constant 1 : index
+  %c3_8 = arith.constant 3 : index
+  %c2_9 = arith.constant 2 : index
+  %c3_10 = arith.constant 3 : index
+  %c3_11 = arith.constant 3 : index
+  %c3_12 = arith.constant 3 : index
+  %c0_13 = arith.constant 0 : index
+  %8 = arith.remsi %c3, %7 : index
+  %9 = arith.cmpi eq, %c0_13, %8 : index
+  cf.assert %9, "invalid: groups must divide input channel size evenly."
+  %c0_14 = arith.constant 0 : index
+  %10 = arith.remsi %c8, %7 : index
+  %11 = arith.cmpi eq, %c0_14, %10 : index
+  cf.assert %11, "invalid: groups must divide weight batch size evenly."
+  %c1_i64_15 = arith.constant 1 : i64
+  %c1_i64_16 = arith.constant 1 : i64
+  %c1_i64_17 = arith.constant 1 : i64
+  %c1_i64_18 = arith.constant 1 : i64
+  %cst = arith.constant 0.000000e+00 : f32
+  %c0_19 = arith.constant 0 : index
+  %c1_20 = arith.constant 1 : index
+  %c1_21 = arith.constant 1 : index
+  %c3_22 = arith.constant 3 : index
+  %c2_23 = arith.constant 2 : index
+  %c500_24 = arith.constant 500 : index
+  %c3_25 = arith.constant 3 : index
+  %c500_26 = arith.constant 500 : index
+  %c0_i64_27 = arith.constant 0 : i64
+  %c0_28 = arith.constant 0 : index
+  %c0_29 = arith.constant 0 : index
+  %c0_30 = arith.constant 0 : index
+  %c0_31 = arith.constant 0 : index
+  %padded = tensor.pad %0 low[0, 0, 0, 0] high[0, 0, 0, 0] {
+  ^bb0(%arg1: index, %arg2: index, %arg3: index, %arg4: index):
+    tensor.yield %cst : f32
+  } : tensor<1x3x500x500xf32> to tensor<1x3x500x500xf32>
+  %c3_i64 = arith.constant 3 : i64
+  %c1_i64_32 = arith.constant 1 : i64
+  %c2_i64 = arith.constant 2 : i64
+  %c0_i64_33 = arith.constant 0 : i64
+  %c500_i64 = arith.constant 500 : i64
+  %c2_i64_34 = arith.constant 2 : i64
+  %c2_i64_35 = arith.constant 2 : i64
+  %c498_i64 = arith.constant 498 : i64
+  %c497_i64 = arith.constant 497 : i64
+  %c498_i64_36 = arith.constant 498 : i64
+  %c498 = arith.constant 498 : index
+  %c3_i64_37 = arith.constant 3 : i64
+  %c1_i64_38 = arith.constant 1 : i64
+  %c2_i64_39 = arith.constant 2 : i64
+  %c0_i64_40 = arith.constant 0 : i64
+  %c500_i64_41 = arith.constant 500 : i64
+  %c2_i64_42 = arith.constant 2 : i64
+  %c2_i64_43 = arith.constant 2 : i64
+  %c498_i64_44 = arith.constant 498 : i64
+  %c497_i64_45 = arith.constant 497 : i64
+  %c498_i64_46 = arith.constant 498 : i64
+  %c498_47 = arith.constant 498 : index
+  %12 = tensor.empty() : tensor<1x8x498x498xf32>
+  %broadcasted = linalg.broadcast ins(%4 : tensor<8xf32>) outs(%12 : tensor<1x8x498x498xf32>) dimensions = [0, 2, 3] 
+  %13 = arith.floordivsi %c3, %7 : index
+  %14 = arith.floordivsi %c8, %7 : index
+  %c0_48 = arith.constant 0 : index
+  %c1_49 = arith.constant 1 : index
+  %15 = linalg.conv_2d_nchw_fchw {dilations = dense<1> : vector<2xi64>, strides = dense<1> : vector<2xi64>} ins(%padded, %2 : tensor<1x3x500x500xf32>, tensor<8x3x3x3xf32>) outs(%broadcasted : tensor<1x8x498x498xf32>) -> tensor<1x8x498x498xf32>
+  %cast = tensor.cast %15 : tensor<1x8x498x498xf32> to tensor<1x8x498x498xf32>
+  %16 = torch_c.from_builtin_tensor %cast : tensor<1x8x498x498xf32> -> !torch.vtensor<[1,8,498,498],f32>
+  return %16 : !torch.vtensor<[1,8,498,498],f32>
+}
+

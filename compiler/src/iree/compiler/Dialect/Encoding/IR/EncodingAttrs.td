@@ -18,7 +18,7 @@ include "mlir/IR/TensorEncoding.td"
 //===---------------------------------------------------------------------===//
 
 class IREEEncoding_I32EnumAttr<string name, string summary, list<I32EnumAttrCase> cases>
-    : I32EnumAttr<name, summary, cases> {
+    : I32EnumAttr<name, summary, cases> { 
   let cppNamespace = "::mlir::iree_compiler::IREE::Encoding";
   let genSpecializedAttr = 0;
 }

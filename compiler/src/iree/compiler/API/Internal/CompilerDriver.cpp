@@ -5,6 +5,9 @@
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 // Platform detect for memfd_create and mmap support.
+#include <cstdint>
+#include <iomanip>
+#include "llvm/Support/raw_ostream.h"
 #if __linux__
 // On Linux, memfd_create is available for GLIBC >= 2.27.
 // Notably, this excludes RHEL7 (and correspondingingly manylinux2014).
@@ -1057,6 +1060,12 @@ bool Invocation::runPipeline(enum iree_compiler_pipeline_t pipeline) {
     parsedModule->emitError() << "unsupported pipeline type " << (int)pipeline;
     return false;
   }
+
+  llvm::errs() << "dump pass one by one \n";
+  uint64_t counter = 0;
+    for (mlir::Pass &pass : passManager->getPasses()) {
+        llvm::errs() << ++counter <<  "\tPass Name:\t" << pass.getName() << "\t arguements" <<pass.getArgument() <<  "\tdes:\t" << pass.getDescription() << "\n";
+    }
 
   if (failed(passManager->run(parsedModule))) {
     return false;

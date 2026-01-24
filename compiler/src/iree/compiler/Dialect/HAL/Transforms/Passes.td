@@ -46,7 +46,7 @@ def AssignLegacyTargetDevicesPass :
     Pass<"iree-hal-assign-legacy-target-devices", "mlir::ModuleOp"> {
   let summary = "Assigns the HAL devices the module will target to the given list of targets.";
   let description = [{
-    Assigns target HAL devices to the module based on the given list.
+    Assigns target HAL devices to the module based on the given list.   
   }];
   let options = [
     Option<

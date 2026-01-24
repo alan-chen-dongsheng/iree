@@ -290,6 +290,13 @@ void buildIREEVMTransformPassPipeline(
       schedulingOptions, halTargetOptions, hooks, passManager, compileFrom,
       compileTo);
 
+
+    llvm::errs() << "buildIREEPrecompileTransformPassPipeline befor GlobalOptimization.\n";
+    uint64_t counter = 0;
+    for (mlir::Pass &pass : passManager.getPasses()) {
+        llvm::errs() << ++counter <<  "\tPass Name:\t" << pass.getName() << "\t arguements" <<pass.getArgument() <<  "\tdes:\t" << pass.getDescription() << "\n";
+    }
+
   if (compileTo <= IREEVMPipelinePhase::GlobalOptimization)
     return; // early-exit
 
